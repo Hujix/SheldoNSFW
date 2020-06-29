@@ -5,16 +5,8 @@ const config = require("./config.json");
 const snekfetch = require('snekfetch');
 
 client.once('ready', () => {
-    console.log('beep boop')
-    client.user.setPresence({game: { name: "l!help | " + client.guilds.size +" Guilds",type:0}});
-});
-
-client.on('guildCreate', (guild) => {
-    client.user.setPresence({game: { name: "l!help | " + client.guilds.size +" Guilds",type:0}});
-});
-
-client.on('guildRemove', (guild) => {
-  client.user.setPresence({game: { name: "l!help | " + client.guilds.size +" Guilds",type:0}});
+  console.log(`Logged in as ${client.user.username} with ${client.ws.ping}ms ping`);
+  client.user.setActivity('NOA');
 });
 
 client.on("message", msg => {
@@ -24,7 +16,7 @@ client.on("message", msg => {
   const command = args.shift().toLowerCase();
   try {
     let commandFile = require(`./commands/${command}.js`);
-    commandFile.run(client, msg, args, starttime);
+    commandFile.run(client, msg, args);
   } catch (err) {
     console.error(err);
   }

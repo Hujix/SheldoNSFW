@@ -1,6 +1,6 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 exports.run = (client, msg, args) => {
-  const image = new RichEmbed()
+  const image = new MessageEmbed()
      .setTitle("Commands:")
      .addField("s!help","This embed.")
      .addField("s!ass","Send ass image.")
@@ -14,5 +14,5 @@ exports.run = (client, msg, args) => {
      .addField("s!anal","Send anal image.")
      .setTimestamp()
      .setFooter(`SheldoNSFW: Made by MrSheldon#0001`)
-   msg.channel.send(embed);
+   msg.channel.send(image);
 };
